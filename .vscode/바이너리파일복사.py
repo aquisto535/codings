@@ -1,4 +1,4 @@
-import os
+
 
 '''
 srcFile = 'sea.png'
