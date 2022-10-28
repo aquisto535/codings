@@ -23,9 +23,10 @@ def login():
     label1.config(text=Id.get())
     label2.config(text=pw.get())
 
+
 def eraser():
     Id.delete(0, END)
-    pw.delete(0,END)
+    pw.delete(0, END)
 
 
 Button(root, text="로그인", command=login).pack()
@@ -37,7 +38,7 @@ label1.pack()
 label2 = Label(root, text="비밀번호")
 label2.pack()
 
-listbox = Listbox(root, height=5, selectmode ='extended')
+listbox = Listbox(root, height=5, selectmode='extended')
 
 listbox.insert(0, '파이썬')
 listbox.insert(1, 'C#')
@@ -46,9 +47,24 @@ listbox.insert(3, '자바')
 listbox.insert(4, '몽고DB')
 listbox.pack()
 
+Photo = PhotoImage(file="../logo.png")
+
+
 def lstDelete():
     listbox.delete(END)
 
+
 Button(root, text='삭제', command=lstDelete).pack()
+
+label3 = Label(root, text="리스트 아이템")
+label3.pack()
+
+
+def lstGetItem():
+    print(listbox.get(0, 2))
+    label3.config(text=listbox.get(0))
+
+
+Button(root, text='가져오기', command=lstGetItem).pack()
 
 root.mainloop()
