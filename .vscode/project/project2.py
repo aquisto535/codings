@@ -13,7 +13,6 @@ txt_file = os.path.dirname(__file__) + '\\qrbarcode_data.txt'
 used_codes = []
 data_list = []
 
-
 try:
     f = open(txt_file, "r", encoding="utf8")
     data_list = f.readlines()
@@ -23,6 +22,8 @@ else:
     f.close()
 
 cap = cv2.VideoCapture(0)
+
+#가로와 세로의 크기 설정
 cap.set(3, 640)
 cap.set(4, 480)
 
@@ -48,8 +49,7 @@ while True:
             f2.close()
             print(key)
         elif my_code in used_codes:
-            msgbox.showerror('에러', '이미 인식된 코드입니다!!!')
-             
+            msgbox.showerror('에러', '이미 인식된 코드입니다!!!')     
         else:
             pass
         
