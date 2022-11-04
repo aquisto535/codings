@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
+import os
 
 fdic = {}
 list_a = []
@@ -30,9 +31,9 @@ for i in range(len(list_a)):
     fdic[i] = [list_a[i], list_b[i]]
 
 
-conn = sqlite3.connect("fdic.db")
+conn = sqlite3.connect(os.path.dirname(__file__) + "\\fdic.db")
 cur = conn.cursor()
-conn.execute("create table fss_dic(id integer, name text, content text)")
+conn.execute("create table if not exists fss_dic(id integer, name text, content text)")
 
 for i in fdic:
     name = fdic[i][0]
