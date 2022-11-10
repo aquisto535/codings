@@ -23,7 +23,7 @@ else:
 
 cap = cv2.VideoCapture(0)
 
-#가로와 세로의 크기 설정
+# 가로와 세로의 크기 설정
 cap.set(3, 640)
 cap.set(4, 480)
 
@@ -33,7 +33,7 @@ for i in data_list:
 while True:
     success, frame = cap.read()
     key = cv2.waitKey(1)
-   
+
     if key == 27:
         break
     for code in pyzbar.decode(frame):
@@ -49,13 +49,13 @@ while True:
             f2.close()
             print(key)
         elif my_code in used_codes:
-            msgbox.showerror('에러', '이미 인식된 코드입니다!!!')     
+            msgbox.showerror('에러', '이미 인식된 코드입니다!!!')
+
         else:
             pass
-        
+
     cv2.imshow('QRcode Barcode Scan', frame)
-    
-    
+
+
 cap.release()
 cv2.destroyAllWindows()
-    

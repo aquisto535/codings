@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup  # 정적 크롤링. 동적 크롤링은 셀레니움을 쓴다!!
 import sqlite3
 import os
 
@@ -51,7 +51,6 @@ while (True):
     if (row == None):
         break
     print(row)
-
 
 conn.commit()
 conn.close()
